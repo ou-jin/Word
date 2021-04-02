@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.word.dao.UserDao">
+    <select id="add"  >
+        insert into
+        word
+        values (
+        #{word.account},
+        #{word.week},
+        #{word.word}
+        )
+    </select>
+
+    <select id="update"  >
+        update word set
+        word = #{word.word}
+        score = #{word.score}
+        where
+        account = #{word.account}
+        and
+        week = #{word.week}
+    </select>
+
+    <select id="get" resultType="word">
+        select * from word where
+        account = #{word.account}
+        and
+        week = #{word.week}
+    </select>
+
+</mapper>

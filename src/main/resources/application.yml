@@ -1,0 +1,15 @@
+server:
+  port: 8010
+
+spring :
+  datasource :
+    url : jdbc:mysql://106.55.160.96:3306/word
+    username : root
+    password : 123456
+    driver-class-name : com.mysql.cj.jdbc.Driver
+
+#指定mybatis映射文件的地址
+mybatis :
+  mapper-locations : classpath:mapper/*.xml
+
+  type-aliases-package: com.example.word.entity

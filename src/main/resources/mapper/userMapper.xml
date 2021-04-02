@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.word.dao.UserDao">
+    <select id="addUser" resultType="user">
+         insert into
+         user
+         values (
+            #{user.account},
+            #{user.name},
+            #{user.password}
+        )
+    </select>
+
+    <select id="del" resultType="user">
+        delete from user where account = #{account}
+    </select>
+
+    <select id="update" resultType="user">
+        update user set
+        name = #{user.name}
+        password = #{user.password}
+        where
+        account = #{user.account}
+    </select>
+
+    <select id="getUserByAccount" resultType="user">
+        select * from user where account = #{account}
+    </select>
+
+</mapper>
