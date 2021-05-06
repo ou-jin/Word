@@ -3,18 +3,13 @@ package com.example.word.entity;
 public class Word {
     private String account;
 
+    private String name;
+
     private int week;
 
     private String word;
 
     private String score;
-
-    public Word(String account, int week, String word, String score) {
-        this.account = account;
-        this.week = week;
-        this.word = word;
-        this.score = score;
-    }
 
     public String getAccount() {
         return account;
@@ -30,6 +25,14 @@ public class Word {
 
     public void setWeek(int week) {
         this.week = week;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getWord() {

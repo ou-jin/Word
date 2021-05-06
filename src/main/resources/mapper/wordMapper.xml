@@ -2,18 +2,21 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.word.dao.UserDao">
-    <select id="add"  >
+<mapper namespace="com.example.word.dao.WordDao">
+    <select id="add" parameterType="word">
         insert into
         word
+        (account,
+        week,
+        word)
         values (
-        #{word.account},
-        #{word.week},
-        #{word.word}
+        #{account},
+        #{week},
+        #{word}
         )
     </select>
 
-    <select id="update"  >
+    <select id="update">
         update word set
         word = #{word.word}
         score = #{word.score}
@@ -23,11 +26,20 @@
         week = #{word.week}
     </select>
 
-    <select id="get" resultType="word">
-        select * from word where
-        account = #{word.account}
-        and
-        week = #{word.week}
+    <select id="get" parameterType="word" resultType="word">
+        select
+        a.word,
+        a.week,
+        a.score,
+        a.date,
+        b.name
+        from word a left join user b
+        on a.account=b.account
+        where
+        a.account =  #{account} or
+        (a.week like #{week} or #{week} is null)
+
+
     </select>
 
 </mapper>

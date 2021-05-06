@@ -1,11 +1,11 @@
 package com.example.word.entity;
 
 public class User {
-    private  String name;
+    public  String name;
 
-    private  String password;
+    public  String password;
 
-    private  String account;
+    public   String account;
 
     public String getName() {
         return name;
